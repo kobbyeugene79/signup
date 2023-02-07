@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Vendorr Sign Up</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" 
+            name="username" 
+            id="username" 
+            v-model="username"
+        >
+
+        <input 
+            type="tel" 
+            name="tel" 
+            id="tel"
+            v-model="telPhone"
+        >
+
+        <input 
+			type="email" 
+			name="email" 
+			id="email" 
+			v-model="eMail"
+		>
+		
+		<input 
+			type="text"
+			name="location"
+			id="location"
+			v-model="theLocation"
+		>
+
+		<select value="plan">
+			<option value="select a plan">Select a plan</option>
+			<option name="plan1" id="plan1">Plan 1</option>
+			<option name="plan2" id="plan2">Plan 2</option>
+		</select>
+
+		<select value="Business Type">
+			<option value="select a Business type">Select a Business type</option>
+			<option name="Type 1" id="type1">Type 1</option>
+			<option name="Type 2" id="type2">Type 2</option>
+		</select>
+
+        <button @click="sendInfo()">Submit BTN</button>
+    </div>
+
+    <script src="app.js" type="module"></script>
+</body>
+</html>
