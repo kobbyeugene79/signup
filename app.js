@@ -3,6 +3,7 @@ const { createApp, ref } = Vue
 createApp({
   
   setup(props, context){
+    const showThankYou = ref(false)
     const username = ref('')
     const telPhone = ref('')
     const eMail = ref('')
@@ -11,16 +12,16 @@ createApp({
 
     const sendInfo = () =>{
       context.emit('submitInput' , (username.value, telPhone.value, eMail.value, theLocation.value))
-      console.log('im here')
     }
 
     return {
+      showThankYou,
       username,
       telPhone,
       eMail,
       theLocation,
       sendInfo
     }
-    // emit: ['submitInput']
+    emit: ['submitInput']
   }
 }).mount('#app')
