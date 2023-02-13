@@ -1,66 +1,102 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <title>Vendorr Sign Up</title>
+   <meta charset="UTF-8" />
+   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+   <title>Vendoorr</title>
+   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+   <link rel="stylesheet" href="https://test.vendoorr.com/assets/index.a9e50c6b.css">
+   <link rel="stylesheet" href="style.css">
+   <style>
+    .text-input{
+        width: 100%;
+    }
+   </style>
 </head>
 <body>
-    <div id="app">
-        <div v-show="!showThankYou">
-            <label for="username">Name</label>
-            <input type="text" 
-                name="username" 
-                id="username" 
-                v-model="username"
-            >
-    
-            <label for="tel">Telephone</label>
-            <input 
-                type="tel" 
-                name="tel" 
-                id="tel"
-                v-model="telPhone"
-            >
-    
-            <label for="email">Email:</label>
-            <input 
-                type="email" 
-                name="email" 
-                id="email" 
-                v-model="eMail"
-            >
-            
-            <label for="location">Location</label>
-            <input 
-                type="text"
-                name="location"
-                id="location"
-                v-model="theLocation"
-            >
-    
-            <label for="plan">Plan</label>
-            <select value="plan">
-                <option value="select a plan">Select a plan</option>
-                <option name="plan1" id="plan1">Plan 1</option>
-                <option name="plan2" id="plan2">Plan 2</option>
-            </select>
-    
-            <label for="usiness">Business Type</label>
-            <select value="Business Type">
-                <option value="select a Business type">Select a Business type</option>
-                <option name="Type 1" id="type1">Type 1</option>
-                <option name="Type 2" id="type2">Type 2</option>
-            </select>
-    
-            <button @click="sendInfo(), showThankYou = true">Submit BTN</button>
-        </div>
+    <!-- navbar -->
+    <header class="navbar" id="navbar">
+        <div class="flex flex--container flex--full-height flex--align-center flex--justify-space-btw">
+            <div class="navbar__logo">
+            <img class="navbar__image" src="/images/logo.svg" alt="">
+            vendoorr
+            </div>
+            <nav class="navbar__navigation" id="navigation" data-visible="false">
+            <!-- <ul class="navbar__links">
+                <li class="navbar__link navbar__link--active"><a class="button button--lg" href="#hero-section">Home</a></li>
+                <li class="navbar__link"><a class="button button--lg button--mobile-full" href="#services-section">Services</a></li>
+                <li class="navbar__link"><a class="button button--lg" href="#features-section">Features</a></li>
+                <li class="navbar__link"><a class="button button--lg" href="#download-section">Download</a></li>
+                <li class="navbar__link"><a class="button button--lg" href="#pricing-section">Pricing</a></li>
+            </ul> -->
+            <div class="navbar__buttons">
+                <a class="button button--lg button--bordered-dark button--mobile-full ">Login</a>
 
-        <div v-show="showThankYou">
-            <h1>Thank You!</h1>
+            </div>
+            </nav>
+            <div class="navbar__mobile-menu-button">
+            <button class="button button--hamburger" id="navigationToggle" data-target="navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            </div>
         </div>
-    </div>
+    </header>
+    <section class="section">
+        <div class="container centered--content">
+            <div id="app">
+                <div class="form" v-show="!showThankYou">
+                    <label class="label">
+                        Full <span class="label--name">Name:</span>
+                        <input placeholder="Full Name" class="form__input text-input text-input--md" type="text" name="username" id="username" v-model="username" />
+                    </label>
+        
+                    <label class="label">
+                        <span class="label--name">Telehone:</span>
+                        <input placeholder="Telephone" class="form__input text-input text-input--md" type="tel" name="tel" id="tel" v-model="telPhone" />
+                    </label>
+                    <label class="label">
+                        <span class="label--name">mail:</span>
+                        <input placeholder="Email" class="form__input text-input text-input--md" type="email" name="email" id="email" v-model="eMail" />
+                    </label>
+                    
+                    <label class="label">
+                        <span class="label--name">Loction:</span>
+                        <input placeholder="location" class="form__input text-input text-input--md" type="text" name="location" id="location" v-model="theLocation"/>
+                    </label>
+                   
+                    <label class="label">
+                        <span class="label--name">Plan:</span>
+                        <select v-model="plan" class="form__input select text-input text-input--md">
+                            <option class="select__option" value="Choose">Choose a Plan</option>
+                            <option class="select__option"  value="Start Up">Start up</option>
+                            <option class="select__option"  value="Premium">Premium</option>
+                            <option class="select__option"  value="Enterprise">Enterprise</option>
+                        </select>
+                    </label>
+                    
+                    <button class="button button--extend button--lg button--primary button--mobile-full" @click="sendInfo(), showThankYou = true">
+                        Submit
+                    </button>
+                    
+                </div>
+        
+                <div v-show="showThankYou">
+                    <div class="margin margin--bottom margin--sm">
+                        <h1 class="title title--md title--color-neutral tit">Thank You!🥳</h1>
+                    </div>
+                    <p>Your information was received, we will contact you soon, click <a href="https://test.vendoorr.com/">here</a> to return to the homepage</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script src="app.js" type="module"></script>
 </body>

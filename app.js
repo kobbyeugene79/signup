@@ -8,6 +8,7 @@ createApp({
     const telPhone = ref('')
     const eMail = ref('')
     const theLocation = ref('')
+    const plan =  ref('Choose')
 
 
     const sendInfo = () =>{
@@ -20,6 +21,7 @@ createApp({
       telPhone,
       eMail,
       theLocation,
+      plan,
       sendInfo
     }
     emit: ['submitInput']
